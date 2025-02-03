@@ -4,7 +4,7 @@ const DB_NAME = require("../constants");
 
 const connectDB = async ()=>{
     try {
-        const connectionInnstace = await mongoose.connect(`${MONGO_URI}/${DB_NAME}`);
+        const connectionInnstace = await mongoose.connect(`${process.env.MONGO_URI}/${DB_NAME}`);
         console.log("Database Connection establihed!");
         
     } catch (err) {
@@ -12,3 +12,5 @@ const connectDB = async ()=>{
         process.exit(1);
     }
 }
+
+module.exports = connectDB;
