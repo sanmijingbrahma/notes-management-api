@@ -8,3 +8,6 @@ const notesSchema = new mongoose.Schema({
     category:{type:String,required:true},
     createdAt:{type:String,required:true}
 })
+
+
+module.exports = mongoose.model("Notes",notesSchema);
