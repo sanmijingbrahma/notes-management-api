@@ -31,10 +31,19 @@ exports.getAllNotes = async ()=>{
 
 exports.getNoteById = async() =>{
     try {
-        const note = Notes.findById(req.param.id);
+        const note = await Notes.findById(req.param.id);
         res.status(200).json(note);
     } catch (err) {
         res.status(400).json({error: err.message});
     }
 }
 
+exports.updateNoteByID = async()=>{
+    try {
+       const data = req.body;
+       const noteUpdated = await Notes.findByIdAndUpdate(req.param.id,data);
+       res.status(202).json(noteUpdated); 
+    } catch (err) {
+        res.status(400).json({error: err.message});
+    }
+}
