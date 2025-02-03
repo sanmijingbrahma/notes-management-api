@@ -28,3 +28,13 @@ exports.getAllNotes = async ()=>{
        res.status(400).json({error: err.message});
     }
 }
+
+exports.getNoteById = async() =>{
+    try {
+        const note = Notes.findById(req.param.id);
+        res.status(200).json(note);
+    } catch (err) {
+        res.status(400).json({error: err.message});
+    }
+}
+
